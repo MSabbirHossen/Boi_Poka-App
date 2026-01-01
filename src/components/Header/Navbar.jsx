@@ -1,9 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Navbar = () => {
     const links = <>
-        <li className='m-2'>Home</li>
-        <li className='m-2'>About</li>
+        <Link to={"/"}><li className='m-2 active:underline active:text-[#23be0a] hover:cursor-pointer'>Home</li></Link>
+        <Link to={"/about"}><li className='m-2 active:underline active:text-[#23be0a] hover:cursor-pointer'>About</li></Link>
+        <li className='m-2 active:underline active:text-[#23be0a] hover:cursor-pointer'>Listed Books</li>
+        <li className='m-2 active:underline active:text-[#23be0a] hover:cursor-pointer'>Pages to Read</li>
     </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -20,7 +23,7 @@ const Navbar = () => {
        }
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">daisyUI</a>
+    <a className="font-bold text-2xl">Book Vibe</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -28,7 +31,8 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    <a className="btn bg-[#23be0a] rounded-lg">Sign In</a>
+    <a className="btn bg-[#59c6d2] rounded-lg ml-3">Sign Up</a>
   </div>
 </div>
     );
