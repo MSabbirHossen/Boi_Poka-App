@@ -3,7 +3,7 @@ import { FaStarHalfAlt } from "react-icons/fa";
 import { Link } from "react-router";
 
 const Book = ({ book }) => {
-  console.log("🚀 ~ Book ~ book:", book);
+  // console.log("🚀 ~ Book ~ book :", book);
   const {
     author,
     bookId,
