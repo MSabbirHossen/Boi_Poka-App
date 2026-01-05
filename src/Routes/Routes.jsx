@@ -5,6 +5,8 @@ import ErrorPage from '../components/pages/ErrorPage/ErrorPage';
 import Home from '../components/pages/Home/Home';
 import About from '../components/pages/About/About';
 import BookDetails from '../components/pages/BookDetails/BookDetails';
+import WishList from '../components/WishList/WishList';
+import ReadList from '../components/pages/ReadList/ReadList';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ export const router = createBrowserRouter([
         {
             path: "/about",
             Component: About
+        },
+        {
+            path: "/wishlist",
+            Component: WishList
+        },
+        {
+            path: "/readlist",
+            Component: ReadList
         },
         {
             path: "/bookDetails/:bookId",

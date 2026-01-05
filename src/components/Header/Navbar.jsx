@@ -9,17 +9,21 @@ const Navbar = () => {
           Home
         </li>
       </Link>
-      <Link to={"/about"}>
-        <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
-          About
+      <Link to={"/wishlist"}>
+        <li  onClick={() => alert("This page is under Contraction, will be updated soon.")} className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+          Wish List
         </li>
       </Link>
-      <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+      <Link to={'/readlist'}><li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
         Listed Books
-      </li>
-      <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+      </li></Link>
+      <Link onClick={() => alert("This page is under Contraction, will be updated soon.")}><li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
         Pages to Read
-      </li>
+      </li></Link>
+      <Link to={"/about"}>
+      <li onClick={() => alert("This page is under Contraction, will be updated soon.")} className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+        About
+      </li></Link>
     </>
   );
   return (
