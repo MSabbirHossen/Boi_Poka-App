@@ -1,9 +1,10 @@
 import React from "react";
 import { FaStarHalfAlt } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLoaderData } from "react-router";
 
-const Book = ({ book }) => {
-  // console.log("🚀 ~ Book ~ book :", book);
+const ReadCard = () => {
+  const book = useLoaderData();
+  console.log("🚀 ~ Book ~ book :", book);
   const {
     author,
     bookId,
@@ -13,11 +14,9 @@ const Book = ({ book }) => {
     publisher,
     rating,
     tags,
-    totalPages,
     yearOfPublishing,
   } = book;
-  // const data = use(bookPromise);
-  // console.log("🚀 ~ Book ~ data:", data)
+
 
   return (
     <Link to={`/bookDetails/${bookId}`}>
@@ -28,7 +27,7 @@ const Book = ({ book }) => {
         <div className="card-body">
           <div className="flex justify-between items-center">
             {tags.map((tag) => (
-              <button>{tag}</button>
+              <button key={tag.index}>{tag}</button>
             ))}
           </div>
           <h2 className="card-title">
@@ -40,7 +39,6 @@ const Book = ({ book }) => {
           <div className="border-t border-dashed"></div>
           <div className="card-actions justify-end">
             <div className="badge badge-outline">{category}</div>
-            <div className="badge badge-outline">Pages: {totalPages}</div>
             <div className="badge badge-outline">
               {rating}
               <FaStarHalfAlt />
@@ -52,4 +50,4 @@ const Book = ({ book }) => {
   );
 };
 
-export default Book;
+export default ReadCard;
