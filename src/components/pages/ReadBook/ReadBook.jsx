@@ -1,20 +1,22 @@
-import React from "react";
-import { FaStarHalfAlt } from "react-icons/fa";
-import { Link } from "react-router";
+import React from 'react';
+import { useLoaderData } from 'react-router';
 
-const Book = ({ book }) => {
+const ReadBook = () => {
   // console.log("🚀 ~ Book ~ book :", book);
+  const readBook =useLoaderData();
   const {
-    author,
+      author,
     bookId,
     bookName,
     category,
     image,
     publisher,
     rating,
+    review,
     tags,
-    yearOfPublishing,
-  } = book;
+    totalPages,
+    yearOfPublishing
+  } = readBook;
   // const data = use(bookPromise);
   // console.log("🚀 ~ Book ~ data:", data)
 
@@ -50,4 +52,4 @@ const Book = ({ book }) => {
   );
 };
 
-export default Book;
+export default ReadBook;

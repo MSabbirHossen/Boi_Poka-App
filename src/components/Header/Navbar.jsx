@@ -1,29 +1,38 @@
 import React from "react";
-import { Link, Links } from "react-router";
+import { Link, Links, NavLink } from "react-router";
 
 const Navbar = () => {
   const links = (
     <>
       <Link to={"/"}>
-        <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+        <li className="m-2 active:border-[#23be0a] active:text-[#23be0a] hover:cursor-pointer">
           Home
         </li>
       </Link>
-      <Link to={"/wishlist"}>
-        <li  onClick={() => alert("This page is under Contraction, will be updated soon.")} className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
-          Wish List
+      <Link to={"/readlist"}>
+        <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+          Listed Books
         </li>
       </Link>
-      <Link to={'/readlist'}><li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
-        Listed Books
-      </li></Link>
-      <Link onClick={() => alert("This page is under Contraction, will be updated soon.")}><li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
-        Pages to Read
-      </li></Link>
+      <Link
+        onClick={() =>
+          alert("This page is under Contraction, will be updated soon.")
+        }
+      >
+        <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
+          Pages to Read
+        </li>
+      </Link>
       <Link to={"/about"}>
-      <li onClick={() => alert("This page is under Contraction, will be updated soon.")} className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
-        About
-      </li></Link>
+        <li
+          onClick={() =>
+            alert("This page is under Contraction, will be updated soon.")
+          }
+          className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer"
+        >
+          About
+        </li>
+      </Link>
     </>
   );
   return (

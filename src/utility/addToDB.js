@@ -11,7 +11,7 @@ const getStoredBook = () =>{
 const addToStoredDB = (newId) =>{
     const storedBookData = getStoredBook();
     if(storedBookData.includes(newId)){
-        alert("This Book is exits on your wish list.")
+        alert("This Book is already exits on your wish list.")
         return
     }else{
         storedBookData.push(newId);
@@ -21,4 +21,4 @@ const addToStoredDB = (newId) =>{
 
 }
 
-export {addToStoredDB};
+export {addToStoredDB,getStoredBook};
