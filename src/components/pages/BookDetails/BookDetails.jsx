@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useLoaderData, useParams } from "react-router";
 import { addToStoredDB } from "../../../utility/addToDB";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { ToastContainer, toast } from 'react-toastify';
+
+const MySwal = withReactContent(Swal);
 
 const BookDetails = () => {
   const id = useParams();
@@ -33,23 +38,45 @@ const BookDetails = () => {
 
   const handleAddToWishList = (newId) => {
     setAddToWishList(true);
-    // alert(`The " ${bookName} " is Added to your wishList.`)
-      // store with id
-      // where do we store this? == in a server (for now in a local store)
-      // stored as a array or a collection
-      // need to check, of the data is already exist, then give a alert.
-      // if the data does not exits then push into the collection or Array.
+    toast(`The ${bookName} is Added to your wishList.`)
+    
+    // store with id
+    // where do we store this? == in a server (for now in a local store)
+    // stored as a array or a collection
+    // need to check, of the data is already exist, then give a alert.
+    // if the data does not exits then push into the collection or Array.
 
-      addToStoredDB(newId)
+    addToStoredDB(newId);
 
-  }
+    // sweetAlert
+
+    // Swal.fire({
+    //   title: `Do you want to add ${bookName} your wishList?`,
+    //   showDenyButton: true,
+    //   showCancelButton: true,
+    //   confirmButtonText: "Add",
+      // denyButtonText: `Don't add`,
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     Swal.fire("Added!", "", "success");
+    //   } 
+    //   else if (result.isDenied) {
+    //     Swal.fire(`${bookName} is not added.`, "", "info");
+    //   }
+    // });
+  };
 
   const [markAsRead, setMArkAsRead] = useState(false);
-  const handleMarkAsRead =()=>{
-    setMArkAsRead(true);   
-    alert(`Congratulation for Completing the " ${bookName} "`) 
-  }
-
+  const handleMarkAsRead = () => {
+    setMArkAsRead(true);
+    // alert(`Congratulation for Completing the " ${bookName} "`);
+    // sweetAlert
+    MySwal.fire({
+      title: "Congratulation!",
+      text: `You Completed the ${bookName} !`,
+      icon: "success",
+    });
+  };
 
   return (
     <div className="w-3/4 mx-auto p-2 flex gap-4">
@@ -94,11 +121,18 @@ const BookDetails = () => {
             <span className="flex-1/2"> {rating}</span>
           </div>
         </div>
-        <button onClick={()=>handleAddToWishList(newId)}  className="btn btn-outline m-2 ">{(!addToWishList) ? "Add to WishList" : "Added"}</button>
-        <button onClick={()=>handleMarkAsRead()} className="btn btn-info m-2 disabled:text-black disabled:cursor-not-allowed disabled:opacity-80">
-          {
-            (!markAsRead) ? "Mark as Read" :"Completed"
-          }
+        <button
+          onClick={() => handleAddToWishList(newId)}
+          className="btn btn-outline m-2 "
+        >
+          {!addToWishList ? "Add to WishList" : "Added"} 
+          <ToastContainer />
+        </button>
+        <button
+          onClick={() => handleMarkAsRead()}
+          className="btn btn-info m-2 disabled:text-black disabled:cursor-not-allowed disabled:opacity-80"
+        >
+          {!markAsRead ? "Mark as Read" : "Completed"}
         </button>
       </div>
     </div>

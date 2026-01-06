@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, Links, NavLink } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 
 const Navbar = () => {
   const links = (
@@ -16,7 +17,7 @@ const Navbar = () => {
       </Link>
       <Link
         onClick={() =>
-          alert("This page is under Contraction, will be updated soon.")
+          toast("This page is under Contraction, will be updated soon.")
         }
       >
         <li className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer">
@@ -26,13 +27,14 @@ const Navbar = () => {
       <Link to={"/about"}>
         <li
           onClick={() =>
-            alert("This page is under Contraction, will be updated soon.")
+            toast("This page is under Contraction, will be updated soon.")
           }
           className="m-2 active:underline active:text-[#23be0a] hover:cursor-pointer"
         >
           About
         </li>
       </Link>
+      <ToastContainer />
     </>
   );
   return (
@@ -61,6 +63,7 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {links}
+            
           </ul>
         </div>
         <Link to={"/"} className="font-bold text-2xl">
